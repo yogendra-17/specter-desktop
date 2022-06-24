@@ -841,4 +841,3 @@ def settings(wallet_alias):
         error=error,
         scroll_to_rescan_blockchain=scroll_to_rescan_blockchain,
     )
-    
