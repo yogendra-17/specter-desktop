@@ -3,13 +3,15 @@
 {% block content %}
 	{% from 'wallet/history/components/total_wallet_balances.jinja' import total_wallet_balances %}
 	{{ total_wallet_balances(wallet, specter) }}
+ 
+
 	<div class="table-holder">
 		{% include "includes/services-data.html" %}
 		{% include "includes/tx-row.html" %}
 		{% include "includes/tx-data.html" %}
 		{% include "includes/explorer-link.html" %}
 		{% include "includes/tx-table.html" %}
-		<tx-table 
+		<tx-table
 		{% if specter.price_check and (specter.alt_rate and specter.alt_symbol) %}
 			price="{{ specter.alt_rate }}"
 			symbol="{{ specter.alt_symbol }}"
@@ -24,4 +26,14 @@
         compact-switch="false">
 		</tx-table>
 	</div>
+
+    <div id = "no-transaction" >
+  
+    <a href="{{ url_for('wallets_endpoint.settings', wallet_alias=wallet_alias, rescan_blockchain=True) }}" class="btn">
+        Go to advanced settings and rescan blockchain
+    </a>
+    
+    </div>
 {% endblock %}
+
+
